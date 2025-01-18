@@ -62,7 +62,7 @@ router.delete("/:id", getUser, async (req, res) => {
   }
 });
 
-// Middleware function
+// Middleware function for getting user object by ID and reuse it in other functions, returning error if user ID is not found
 async function getUser(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
