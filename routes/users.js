@@ -3,7 +3,7 @@ const router = express.Router();
 module.exports = router;
 const User = require("../models/User");
 
-// Getting all users
+// Getting all users from the database using GET method
 router.get("/", async (req, res) => {
   try {
     const user = await User.find();
@@ -13,12 +13,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Getting one user
+// Getting one user using id as a parameter using GET method
 router.get("/:id", getUser, (req, res) => {
   res.json(res.user);
 });
 
-// Creating one user
+// Creating one user and saving it to the database using POST method
 router.post("/", async (req, res) => {
   const user = new User({
     name: req.body.name,
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Updating one user
+// Updating one user and saving it in the database using PATCH method
 router.patch("/:id", getUser, async (req, res) => {
   if (req.body.name != null) {
     res.user.name = req.body.name;
@@ -52,7 +52,7 @@ router.patch("/:id", getUser, async (req, res) => {
   }
 });
 
-// Deleting one user
+// Deleting one user from the database by using ID as a parameter with the DELETE method
 router.delete("/:id", getUser, async (req, res) => {
   try {
     await res.user.deleteOne();
