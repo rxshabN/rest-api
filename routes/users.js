@@ -98,10 +98,12 @@ router.patch("/:id", getUser, async (req, res) => {
       new: true, // returns updated document
       runValidators: true, // ensure schema validation
     });
+
     // Invalidate or update cache
     await redisClient.set(USER_CACHE_KEY(userId), JSON.stringify(updatedUser), {
       EX: 31536000,
     });
+
     res.json(updatedUser);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -113,7 +115,7 @@ router.delete("/:id", getUser, async (req, res) => {
   const userId = req.params.id;
   try {
     if (!res.user) return res.status(404).json({ message: "User not found" });
-    const userDoc = new User(res.user);
+    const userDoc = new User(JSON.parse(res.user));
     await userDoc.deleteOne();
     await redisClient.del(USER_CACHE_KEY(userId));
     res.json({ message: "Successfully deleted user" });

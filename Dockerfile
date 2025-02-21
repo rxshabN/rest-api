@@ -31,4 +31,4 @@ USER node
 EXPOSE 5000
 
 # Run the application.
-CMD node server.js
+CMD ["node", "server.js"]
