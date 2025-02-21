@@ -5,11 +5,13 @@
   "scripts": {
     "devStart": "nodemon server.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@upstash/redis": "^1.34.4",
     "mongoose": "^8.8.4"
   },
   "devDependencies": {
