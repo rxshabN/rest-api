@@ -34,11 +34,12 @@ router.get("/", async (req, res) => {
       }
 
       console.log("🚀 Served from MongoDB");
-      return res.json(dbUsers);
+      return res.json(JSON.parse(dbUsers));
     }
 
     console.log("🚀 Served from Redis Cache");
-    res.json(users);
+    const parsedUsers = users.map((user) => JSON.parse(user));
+    res.json(parsedUsers);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -56,7 +57,7 @@ router.get("/", async (req, res) => {
 // });
 
 router.get("/:id", getUser, (req, res) => {
-  res.json(res.user); // Directly use the user set by middleware
+  res.json(JSON.parse(res.user)); // Directly use the user set by middleware
 });
 
 // Creating one user and saving it to the database using POST method

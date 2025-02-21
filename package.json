@@ -12,10 +12,12 @@
   "description": "",
   "dependencies": {
     "@upstash/redis": "^1.34.4",
-    "mongoose": "^8.8.4"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4",
+    "redis": "^4.7.0"
   },
   "devDependencies": {
-    "dotenv": "^16.4.7",
     "nodemon": "^3.1.7"
   }
 }
