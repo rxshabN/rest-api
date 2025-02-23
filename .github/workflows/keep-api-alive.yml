@@ -1,0 +1,14 @@
+name: Keep API Alive
+
+on:
+  schedule:
+    - cron: "*/7 * * * *"
+  workflow_dispatch:
+
+jobs:
+  keep-api-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API to keep it alive
+        run: |
+          curl -X GET "https://rest-api-carl.onrender.com/users" || echo "API not responding"
