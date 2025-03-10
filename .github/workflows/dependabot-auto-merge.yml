@@ -35,7 +35,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Enable auto-merge if conditions are met
       - name: Enable auto-merge
