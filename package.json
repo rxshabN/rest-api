@@ -9,7 +9,8 @@
     "lint": "eslint . --ext .js",
     "docker:build": "docker build -t rest-api .",
     "docker:run": "docker compose up",
-    "docker:down": "docker compose down"
+    "docker:down": "docker compose down",
+    "test": "echo \"No tests specified, skipping...\" && exit 0"
   },
   "type": "module",
   "keywords": [

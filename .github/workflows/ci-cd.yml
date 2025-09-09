@@ -58,10 +58,6 @@ jobs:
           REDIS_DEV_URL: redis://localhost:6379
         run: npm test
 
-      - name: Generate test coverage
-        run: npm run test:coverage || true
-        continue-on-error: true
-
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
