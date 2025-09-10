@@ -11,7 +11,7 @@ env:
   DOCKER_TAG: ${{ github.sha }}
 
 permissions:
-  contents: read
+  contents: write
   security-events: write
 
 jobs:
