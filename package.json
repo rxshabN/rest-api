@@ -28,7 +28,7 @@
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "mongodb": "^7.0.0",
-    "mongoose": "^8.19.3",
+    "mongoose": "^9.0.0",
     "redis": "^5.9.0"
   },
   "devDependencies": {
